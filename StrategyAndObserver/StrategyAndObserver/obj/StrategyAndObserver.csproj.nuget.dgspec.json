@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GIT\\StrategyAndObserver\\StrategyAndObserver\\StrategyAndObserver.csproj": {}
+    "D:\\ForGit\\StrategyAndObserver\\StrategyAndObserver\\StrategyAndObserver.csproj": {}
   },
   "projects": {
-    "D:\\GIT\\StrategyAndObserver\\StrategyAndObserver\\StrategyAndObserver.csproj": {
+    "D:\\ForGit\\StrategyAndObserver\\StrategyAndObserver\\StrategyAndObserver.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT\\StrategyAndObserver\\StrategyAndObserver\\StrategyAndObserver.csproj",
+        "projectUniqueName": "D:\\ForGit\\StrategyAndObserver\\StrategyAndObserver\\StrategyAndObserver.csproj",
         "projectName": "StrategyAndObserver",
-        "projectPath": "D:\\GIT\\StrategyAndObserver\\StrategyAndObserver\\StrategyAndObserver.csproj",
+        "projectPath": "D:\\ForGit\\StrategyAndObserver\\StrategyAndObserver\\StrategyAndObserver.csproj",
         "packagesPath": "C:\\Users\\vladi\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT\\StrategyAndObserver\\StrategyAndObserver\\obj\\",
+        "outputPath": "D:\\ForGit\\StrategyAndObserver\\StrategyAndObserver\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vladi\\AppData\\Roaming\\NuGet\\NuGet.Config",

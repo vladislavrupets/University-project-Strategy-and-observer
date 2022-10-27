@@ -10,7 +10,7 @@ namespace TestProject1
         {
         }
 
-        [Test]
+        /*[Test]
         public void Test1()
         {
             Person p1 = new Person("A");
@@ -20,6 +20,14 @@ namespace TestProject1
             Assert.AreEqual("Yes", p2.Answer(question));
             Assert.AreEqual("Yes", p3.Answer(question));
 
+        }*/
+        [Test]
+        public void TestMethod2()
+        {
+            Person p = new EnglishPerson("A");
+            Assert.AreEqual("yes", p.Answer("peace apple nose"));
+            Assert.AreEqual("no", p.Answer("milk coffee beer"));
         }
+
     }
 }
