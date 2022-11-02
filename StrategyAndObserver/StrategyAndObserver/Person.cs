@@ -50,7 +50,7 @@ namespace StrategyAndObserver
             else return no;
         }
     }*/
-    public abstract class Person
+    /*public abstract class Person
     {
         private string name;
         protected string[] vocabulary;
@@ -98,7 +98,158 @@ namespace StrategyAndObserver
             vocabulary = new string[] { "Tisch", "Apfel", "Baum" };
             yes = "ja"; no = "nein";
         }
+    }*/
+    public interface IObserver
+    {
+        public void Update(ISubject subject);
+    }
+
+    public interface ISubject
+    {
+        public void AddObserver(IObserver observer);
+        public void RemoveObserver(IObserver observer);
+        public void Notify();
+    }
+
+    public class Person : IObserver, ISubject
+    {
+        private string name;
+        private List<LanguageKnowledge> languages;
+        private List<IObserver> observers;
+        private string no;
+        private string answer;
+        private string question;
+        public Person(string name, string no)
+        {
+            this.name = name;
+            this.no = no;
+            answer = "";
+            question = "";
+            languages = new List<LanguageKnowledge>();
+            observers = new List<IObserver>();
+        }
+        public void Ask(string question)
+        {
+            this.question = question;
+            Notify();
+        }
+        public string Answer(string question)
+        {
+            foreach (LanguageKnowledge language in languages)
+            {
+                if (language.Answer(question) == language.yes)
+                {
+                    return language.yes;
+                }
+            }
+            return no;
+        }
+        public void AddLanguage(LanguageKnowledge language)
+        {
+            languages.Add(language);
+        }
+
+        public void Update(ISubject subject)
+        {
+            Person person = subject as Person;
+            answer = this.Answer(person.question);
+        }
+        public void AddObserver(IObserver observer)
+        {
+            observers.Add(observer);
+        }
+
+        public void RemoveObserver(IObserver observer)
+        {
+            observers.Remove(observer);
+        }
+
+        public void Notify()
+        {
+            foreach (var observer in observers)
+            {
+                observer.Update(this);
+            }
+        }
+        public int Agree()
+        {
+            List<Person> persons = new List<Person>();
+            foreach (var observer in observers)
+            {
+                persons.Add(observer as Person);
+            }
+            int k = 0;
+            List<string> confirmations = new List<string>();
+            foreach (var person in persons)
+            {
+                foreach (var language in languages)
+                {
+                    confirmations.Add(language.yes);
+                }
+                if (confirmations.Contains(person.answer))
+                    k++;
+            }
+            return k;
+        }
     }
 
 
+
+
+
+
+    public abstract class LanguageKnowledge
+    {
+        protected string[] vocabulary;
+        public string yes;
+        public string no;
+        public string Answer(string question)
+        {
+            string[] words = question.Split(' ');
+            bool found = false;
+            foreach (string qWord in words)
+            {
+                foreach (string vWord in vocabulary)
+                {
+                    if (qWord == vWord)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+                if (found)
+                    break;
+            }
+            if (found)
+                return yes;
+            else
+                return no;
+        }
+    }
+    public class EnglishKnowledge : LanguageKnowledge
+    {
+        public EnglishKnowledge()
+        {
+            vocabulary = new string[] { "table", "apple", "tree" };
+            yes = "yes";
+            no = "no";
+        }
+    }
+    public class UkrainianKnowledge : LanguageKnowledge
+    {
+        public UkrainianKnowledge()
+        {
+            vocabulary = new string[] { "стіл", "яблуко", "дерево" };
+            yes = "так";
+            no = "ні";
+        }
+    }
+    public class GermanKnowledge : LanguageKnowledge
+    {
+        public GermanKnowledge()
+        {
+            vocabulary = new string[] { "Tisch", "Apfel", "Baum" };
+            yes = "ja"; no = "nein";
+        }
+    }
 }
