@@ -171,25 +171,18 @@ namespace StrategyAndObserver
                 observer.Update(this);
             }
         }
-        public int Agree()
+        public int ObserverCount()
         {
-            List<Person> persons = new List<Person>();
-            foreach (var observer in observers)
+            /*List<Person> persons = new List<Person>();
+            foreach (var o in observers)
+                persons.Add((Person)o);
+            int cnt = 0;
+            
+            foreach (var p in persons)
             {
-                persons.Add(observer as Person);
-            }
-            int k = 0;
-            List<string> confirmations = new List<string>();
-            foreach (var person in persons)
-            {
-                foreach (var language in languages)
-                {
-                    confirmations.Add(language.yes);
-                }
-                if (confirmations.Contains(person.answer))
-                    k++;
-            }
-            return k;
+                cnt++;
+            }*/
+            return observers.Count;
         }
     }
 

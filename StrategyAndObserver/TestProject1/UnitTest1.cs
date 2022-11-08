@@ -11,7 +11,7 @@ namespace TestProject1
         {
         }
 
-        [Test]
+
         /*public void Test1()
         {
             Person p1 = new Person("A");
@@ -38,7 +38,8 @@ namespace TestProject1
             Assert.AreEqual("ні", p2.Answer("peace apple nose"));
             Assert.AreEqual("nein", p3.Answer("peace apple nose"));
         }*/
-        /*public void TestMethod4() //Man can know some languages
+        [Test]
+        public void TestMethod4() //Man can know some languages
         {
             LanguageKnowledge ek = new EnglishKnowledge();
             LanguageKnowledge uk = new UkrainianKnowledge();
@@ -50,8 +51,8 @@ namespace TestProject1
             Assert.AreEqual("так", p1.Answer("мир яблуко нос"));
             Assert.AreEqual("dont know", p1.Answer("Welt Apfel Nase"));
             Assert.AreEqual("dont know", p1.Answer("xxx yyy"));
-        }*/
-        
+        }
+        [Test]
         public void TestMethod5()
         {
             LanguageKnowledge ek = new EnglishKnowledge();
@@ -70,7 +71,7 @@ namespace TestProject1
             p1.AddObserver(p4);
             p1.Ask("peace apple nose");
 
-            Assert.AreEqual(2,p1.Agree());
+            Assert.AreEqual(3,p1.ObserverCount());
         }
     }
 }
